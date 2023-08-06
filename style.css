@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&family=Big+Shoulders+Text&family=Lato:wght@300&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    font-family:'Big Shoulders Display', cursive;
+    height: 100px;
+}
+.banner{
+   width:100%;
+   height: 100%; 
+   overflow: hidden;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.banner video{
+    position: fixed;
+    top: 0;
+    left:0;
+    object-fit: cover;
+    width: 115%;
+}
+.banner .content{
+    position: absolute;
+    left:400px;
+    top:150px;
+}
+.banner .content h1{
+    font-size: 2.5em;
+    text-transform: uppercase;
+    color:#ffff;
+    align-items: center;
+}
+.banner .content p{
+    font-size:1.9em;
+    align-items:center;
+    color:#ffff;
+    position: absolute;
+    left:30px;
+    top:50px;
+}
+.banner .content img {
+    
+    padding: 40px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+
+     
+
+}
+
