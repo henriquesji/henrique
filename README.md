@@ -1,47 +1,137 @@
-# henrique
 <!DOCTYPE html>
+<html>
 <head>
-<html lang="pt-br">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Folheto Promocional</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="styles/style.css"/>
+    <title>MAP Valinhos </title>
 </head>
 
-<header class="cabecalho">
-    <img class="cabecalho-logo" src="./logo.png.jpg" alt="logo">
-    <nav class="cabecalho-menu">
-        <a href="home.html" class="cabecalho-item" target="blank">Home</a>
-        <a href="cachorros.html"class="cabecalho-item"target="blank">Rações</a>
-        <a class="cabecalho-item">Gatos</a>
-        <a href="pesquisa.html"class="cabecalho-item" target="blank">Pesquisa</a>
-        <a href="https://www.google.com.br/" target="_blank">Pesquisa</a>
-        <a class="cabecalho-item">Contato</a>
-    </nav>
+<body>
+    <h1>Mundo à parte Valinhos</h1>
+    <table>
+        <tr>
+            <th>Dia/Mes</th>
+            <th>Janeiro</th>
+            <th>Fevereiro</th>
+            <th>Março</th>
+            <th>Abril</th>
+            <th>Maio</th>
+            <th>Junho</th>
+            <th>Julho</th>
+            <th>Agosto</th>
+            <th>Setembro</th>
+            <th>Outubro</th>
+            <th>Novembro</th>
+            <th>Dezembro</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <th>Total</th>
+            <td>19.665</td>
+            <td>15.939</td>
+            <td>36.408</td>
+            <td>6.884</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="total"></td>
+        </tr>
+        <tr>
+            <th>Avaliações</th>
+            <td>08</td>
+            <td>03</td>
+            <td>11</td>
+            <td>04</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="total-avaliacao"></td>
+        </tr>
+        <tr>
+            <th>Visitas</th>
+            <td>08</td>
+            <td>07</td>
+            <td>00</td>
+            <td>03</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="total-visita"></td>
+        </tr>
+    </table>
+    <script>
+        function calcularSomaDeLinha(tabela, linhaIndex, idTotal) {
+            const linha = tabela.rows[linhaIndex];
+            let soma = 0;
+            for (let i = 1; i <= 12; i++) {
+                const valor = linha.cells[i].textContent.trim();
+                if (valor !== "") {
+                    const numero = parseInt(valor.replace(/\./g, ""));
+                    if (!isNaN(numero)) {
+                        soma += numero;
+                    }
+                }
+            }
+            const celulaTotal = document.getElementById(idTotal);
+            if (celulaTotal) {
+                celulaTotal.textContent = soma.toLocaleString('pt-BR');
+            } else {
+                console.error(`Célula com id ${idTotal} não encontrada!`);
+            }
+        }
 
-</header>
-<main>
-    <section>
-        <div>
-1 dv
-        </div>
-    </section>
-    <section>
-        <div>
-2 dv
-        </div>
-    </section>
+        const tabela = document.querySelector('table');
+        calcularSomaDeLinha(tabela, 1, 'total');
+        calcularSomaDeLinha(tabela, 2, 'total-avaliacao');
+        calcularSomaDeLinha(tabela, 3, 'total-visita');
+    </script>
+    <style>
+    h1{
+        text-align:center;
+        color:green;
+    }
+    table {
+  width: 100%; /* Largura total da tabela */
+  border-collapse: collapse; /* Colapsa as bordas das células */
+  font-family: sans-serif; /* Fonte mais comum */
+}
 
-</main>
+th, td {
+  border: 1px solid #ccc; /* Borda cinza para células e cabeçalho */
+  padding: 8px; /* Espaçamento interno das células */
+  text-align: left; /* Alinhamento do texto à esquerda */
+}
 
-<footer>
-    <fieldset>
-        <div class="contact-info">
-          <i>PET SHOP JUSTUS KENNEL :<br>
-            <i>Rua Carlos Lacerda- 445 - São Sebastião do Paraíso - MG</i><br>
-           <strong></strong>WhatsApp: (35)98447-5665  <br></strong>Entrega gratuíta.<i>
-        </div>
-    </fieldset>
+th {
+  background-color: #f2f2f2; /* Fundo cinza claro para o cabeçalho */
+  font-weight: bold; /* Texto do cabeçalho em negrito */
+}
 
-</footer>
+tr:nth-child(even) {
+  background-color: #f9f9f9; /* Fundo levemente diferente para linhas pares */
+}
+
+#total, #total-finalizados, #total-cancelados {
+  font-weight: bold; /* Destaca a célula de total */
+  text-align: right; /* Alinha o total à direita */
+}
+
+    
+    </style>
+</body>
+</html>
